@@ -37,6 +37,7 @@ export default function Header() {
     { name: "Sobre", id: "sobre" },
     { name: "Serviços", id: "servicos" },
     { name: "Benéficios", id: "beneficios" },
+    { name: "Depoimentos", id: "depoimentos" },
     { name: "Dúvidas Frequentes", id: "faq" },
     { name: "Contato", id: "contato" },
   ];
@@ -44,7 +45,7 @@ export default function Header() {
   return (
     <header
       className={`fixed md:sticky top-0 left-0 right-0 flex items-center justify-between h-20 md:h-24 w-full px-6 md:px-16 z-40 transition-all duration-300 scroll-smooth ${
-        scrolled ? "bg-white shadow-sm" : "bg-transparent"
+        scrolled ? "bg-white/90 shadow-sm" : "bg-transparent"
       }`}
     >
       <a href="#inicio">

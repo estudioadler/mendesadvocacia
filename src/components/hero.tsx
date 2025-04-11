@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export const Hero = () => {
   return (
-    <section className="flex flex-col items-start md:flex-row gap-10 pb-24 pt-48 bg-palette-white pl-6 md:pl-16">
+    <section className="flex flex-col items-end md:flex-row gap-10 pb-24 pt-48 bg-palette-white pl-6 md:pl-16">
       <div className="md:w-1/2 w-full">
         <h1 className="md:text-4xl text-3xl">
           Defesa dos seus <br /> direitos trabalhistas <br /> com excelência e dedicação.

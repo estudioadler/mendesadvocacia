@@ -46,7 +46,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section id="faq" className="py-20">
+    <section id="faq" className="py-20 border-b border-palette-secondary">
       <div className="container-x flex flex-col gap-6">
         <TitleSection title="Dúvidas Frequentes" tagTitle="FAQ" />
         {faqItems.length > 0 && (
@@ -57,8 +57,8 @@ const FAQSection = () => {
                 value={`item-${index}`}
                 className="border-b border-b-palette-secondary"
               >
-                <AccordionTrigger>{item.question}</AccordionTrigger>
-                <AccordionContent>{item.answer}</AccordionContent>  
+                <AccordionTrigger className="text-md text-left font-medium">{item.question}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">{item.answer}</AccordionContent>  
               </AccordionItem>
             ))}
           </Accordion>

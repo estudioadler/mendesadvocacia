@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export const ContactForm = () => {
   return (
-    <section id="contato" className="py-20">
+    <section id="contato" className="py-20 border-b border-palette-secondary">
       <div className="container mx-auto px-6">
         <div className="max-w-2xl mx-auto flex flex-col gap-6">
           <TitleSection
