@@ -7,7 +7,7 @@ export const Footer = () => {
       <div className="max-w-screen-2xl px-4 py-16 container-x">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
-            <Link href={"/"}>
+            <Link href="/">
               <Image src="/logo.svg" alt="logo" width={128} height={128} />
             </Link>
             <p className="max-w-xs mt-4 text-sm text-neutral-600">
@@ -18,47 +18,39 @@ export const Footer = () => {
             <div>
               <p className="font-medium">Navegação</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-neutral-500">
-                <Link href={"#"} className="hover:opacity-75">
-                  {" "}
-                  Sobre{" "}
+                <Link href="/#sobre" className="hover:opacity-75">
+                  Sobre
                 </Link>
-                <Link href={"#"} className="hover:opacity-75">
-                  {" "}
-                  Serviços{" "}
+                <Link href="/#servicos" className="hover:opacity-75">
+                  Serviços
                 </Link>
-                <Link href={"#"} className="hover:opacity-75">
-                  {" "}
-                  Benefícios{" "}
+                <Link href="/#beneficios" className="hover:opacity-75">
+                  Benefícios
                 </Link>
-                <Link href={"#"} className="hover:opacity-75">
-                  {" "}
-                  Depoimentos{" "}
+                <Link href="/#depoimentos" className="hover:opacity-75">
+                  Depoimentos
                 </Link>
               </nav>
             </div>
             <div>
               <p className="font-medium">Suporte</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-neutral-500">
-                <Link href={"#"} className="hover:opacity-75">
-                  {" "}
-                  Contato{" "}
+                <Link href="/#contato" className="hover:opacity-75">
+                  Contato
                 </Link>
-                <Link href={"#"} className="hover:opacity-75">
-                  {" "}
-                  FAQs{" "}
+                <Link href="/#faq" className="hover:opacity-75">
+                  FAQs
                 </Link>
               </nav>
             </div>
             <div>
               <p className="font-medium">Legal</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-neutral-500">
-                <Link href={"#"} className="hover:opacity-75">
-                  {" "}
-                  Privacy Policy{" "}
+                <Link href="/privacy-policy" className="hover:opacity-75">
+                  Privacy Policy
                 </Link>
-                <Link href={"#"} className="hover:opacity-75">
-                  {" "}
-                  Terms &amp; Conditions{" "}
+                <Link href="/terms-conditions" className="hover:opacity-75">
+                  Terms &amp; Conditions
                 </Link>
               </nav>
             </div>

@@ -30,7 +30,7 @@ export default function Benefits() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {benefits.map((benefit, index) => (
           <Card key={index} className="h-full flex flex-col items-start bg-transparent border-none relative">
-            <CardHeader className="flex flex-col gap-4">
+            <CardHeader className="flex flex-col gap-2">
               <div>{benefit.icon}</div>
               <CardTitle className="text-xl font-medium">{benefit.title}</CardTitle>
             </CardHeader>
