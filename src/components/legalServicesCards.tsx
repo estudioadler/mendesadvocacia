@@ -92,8 +92,8 @@ export default function LegalServicesCards() {
   ]
 
   return (
-    <section id="servicos" className="container-x mx-auto py-20 flex flex-col gap-20 border-b border-palette-secondary">
-      <TitleSection title="Como podemos te ajudar" tagTitle="Serviços" className="mb-10" />
+    <section id="servicos" className="container-x mx-auto py-20 flex flex-col gap-12 border-b border-palette-secondary">
+      <TitleSection title="Como podemos te ajudar" tagTitle="Serviços" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((service, index) => (
           <Card key={index} className="h-full flex flex-col items-start bg-transparent border-none relative">

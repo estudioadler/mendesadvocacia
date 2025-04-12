@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Laptop, UserCheck, Shield } from "lucide-react"
 import { TitleSection } from "./titleSection"
 
-export default function WhyChooseUsCards() {
+export default function Benefits() {
   const benefits = [
     {
       title: "Tecnologia e Inovação",
@@ -25,8 +25,8 @@ export default function WhyChooseUsCards() {
   ]
 
   return (
-    <section id="beneficios" className="container-x mx-auto py-20 flex flex-col gap-20 border-b border-palette-secondary">
-      <TitleSection title="Por que escolher a Mendes Advocacia" tagTitle="Benefícios" className="mb-10" />
+    <section id="beneficios" className="container-x mx-auto py-20 flex flex-col gap-12 border-b border-palette-secondary">
+      <TitleSection title="Por que escolher a Mendes Advocacia" tagTitle="Benefícios" />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {benefits.map((benefit, index) => (
           <Card key={index} className="h-full flex flex-col items-start bg-transparent border-none relative">

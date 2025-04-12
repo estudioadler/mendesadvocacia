@@ -72,7 +72,7 @@ export const Footer = () => {
           >
             @devadler
           </Link>{" "}
-          All rights reserved
+          Todos os direitos reservados.
         </p>
       </div>
     </footer>

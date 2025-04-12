@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="scroll-smooth scroll-pt-16 overflow-scroll">
+    <html lang="pt-BR" className="scroll-smooth md:scroll-pt-24 scroll-pt-20 overflow-scroll">
       <body className={manrope.className}>{children}</body>
     </html>
   );

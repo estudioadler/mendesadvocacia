@@ -3,6 +3,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { TitleSection } from "./titleSection";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 export const ContactForm = () => {
   return (
@@ -19,14 +20,14 @@ export const ContactForm = () => {
             <Input placeholder="E-mail" type="email" />
             <Textarea
               placeholder="Descreva brevemente seu caso"
-              className="min-h-[150px]"
+              className="min-h-[150px] text-sm"
             />
             <div className="flex gap-4 mt-6">
-              <Link href="#">
-                <button className="px-6 py-3 text-sm font-semibold text-white bg-palette-primary hover:bg-palette-secondary transition-colors">
-                  Entre em contato
-                </button>
-              </Link>
+            <Link href="#">
+            <Button size={"lg"} className="px-4 rounded-none text-palette-white bg-palette-primary hover:bg-palette-primary/90 transition-colors">
+              Enviar Mensagem
+            </Button>
+          </Link>
             </div>
           </form>
         </div>

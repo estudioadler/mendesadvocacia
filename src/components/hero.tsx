@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Button } from "./ui/button"
 
 export const Hero = () => {
   return (
@@ -11,11 +12,16 @@ export const Hero = () => {
           Nossa missão é lutar ao lado de cada trabalhador, assegurando <br />
           seus direitos com justiça, dignidade e respeito.
         </p>
-        <div className="flex gap-4 mt-6">
+        <div className="flex flex-col md:flex-row gap-2 mt-6">
           <Link href="#">
-            <button className="px-6 py-3 text-sm font-semibold text-palette-white bg-palette-primary hover:bg-palette-primary/90 transition-colors">
-              Entre em contato
-            </button>
+            <Button size={"lg"} className="px-4 rounded-none text-palette-white bg-palette-primary hover:bg-palette-primary/90 transition-colors">
+              Fale com um especialista
+            </Button>
+          </Link>
+          <Link href="#">
+            <Button size={"lg"}  className="px-4 rounded-none text-palette-primary bg-palette-white border border-palette-primary hover:bg-palette-primary/10 transition-colors">
+              Conheça nossos serviços
+            </Button>
           </Link>
         </div>
       </div>

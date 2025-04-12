@@ -1,36 +1,58 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import * as React from "react"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [scrolled, setScrolled] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+  const [scrolled, setScrolled] = React.useState(false)
+  const menuRef = React.useRef<HTMLDivElement>(null)
+  const buttonRef = React.useRef<HTMLButtonElement>(null)
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+    setIsMenuOpen(!isMenuOpen)
+  }
 
   // Efeito para detectar o scroll da página
   React.useEffect(() => {
     const handleScroll = () => {
       // Verifica se a página foi rolada mais que 10px
-      const isScrolled = window.scrollY > 10;
+      const isScrolled = window.scrollY > 10
       if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
+        setScrolled(isScrolled)
       }
-    };
+    }
 
     // Adiciona o evento de scroll
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll)
 
     // Remove o evento quando o componente é desmontado
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrolled]);
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [scrolled])
+
+  // Efeito para fechar o menu quando clicar fora dele
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        isMenuOpen &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [isMenuOpen])
 
   // Títulos e IDs correspondentes
   const listNav = [
@@ -40,7 +62,7 @@ export default function Header() {
     { name: "Depoimentos", id: "depoimentos" },
     { name: "Dúvidas Frequentes", id: "faq" },
     { name: "Contato", id: "contato" },
-  ];
+  ]
 
   return (
     <header
@@ -68,12 +90,8 @@ export default function Header() {
           ))}
         </ul>
       </nav>
-      {/* Botão de menu para dispositivos móveis */}
-      <button
-        onClick={toggleMenu}
-        className="lg:hidden focus:outline-none"
-        aria-label="Toggle menu"
-      >
+      {/* Botão de menu para dispositivos móveis */}
+      <button ref={buttonRef} onClick={toggleMenu} className="lg:hidden focus:outline-none" aria-label="Toggle menu">
         <div className="space-y-1.5">
           <span
             className={`block h-px w-6 bg-muted-foreground transition-all duration-300 ease-out ${
@@ -89,7 +107,7 @@ export default function Header() {
       </button>
 
       {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-palette-white shadow-md lg:hidden z-50">
+        <div ref={menuRef} className="absolute top-full left-0 right-0 bg-palette-white shadow-md lg:hidden z-50">
           <nav className="px-6">
             <ul className="flex flex-col">
               {listNav.map((item) => (
@@ -110,5 +128,5 @@ export default function Header() {
         </div>
       )}
     </header>
-  );
+  )
 }

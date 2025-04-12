@@ -8,13 +8,13 @@ import LegalServicesCards from "@/components/legalServicesCards";
 import Preloader from "@/components/preloader";
 import Testimonial from "@/components/testmonial";
 import { Card } from "@/components/ui/card";
-import WhyChooseUsCards from "@/components/whyChooseUsCards";
 import { Award, Briefcase, Shield, Users } from "lucide-react";
+import Benefits from "@/components/benefits";
 
 export default function Home() {
   return (
     <>
-      <Preloader />
+      {/* <Preloader /> */}
       <Header />
       <Hero />
       <div className="gap-6 container-x bg-palette-white pb-20">
@@ -55,7 +55,7 @@ export default function Home() {
       </div>
       <AboutArea />
       <LegalServicesCards />
-      <WhyChooseUsCards />
+      <Benefits />
       <Testimonial />
       <FAQSection />
       <ContactForm />

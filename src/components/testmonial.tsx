@@ -8,8 +8,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useRef } from "react";
+import { TitleSection } from "./titleSection";
+import { Quote } from "lucide-react";
 
 // Dados dos testemunhos
 const testimonials = [
@@ -66,20 +67,20 @@ const testimonials = [
 export default function Testimonial() {
   const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
   return (
-    <div className="py-20 bg-palette-primary">
-      <div className="container-x mx-auto flex flex-col gap-10">
-        <div className="flex flex-col justify-between gap-1 md:gap-2">
-          <span className="text-xs sm:text-sm font-bold uppercase text-palette-secondary">
-            Depoimentos
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl text-palette-white">
-            O que nossos clientes dizem
-          </h2>
-        </div>
+    <section
+      id="depoimentos"
+      className="py-20 bg-palette-white border-b border-palette-secondary"
+    >
+      <div className="container-x mx-auto flex flex-col gap-12 relative">
+        <TitleSection
+          title="O que nossos clientes dizem"
+          tagTitle="Depoimentos"
+        />
+        <Quote className="absolute top-24 left-6 w-8 h-8" strokeWidth={1} />
 
         <Carousel
           plugins={[plugin.current]}
-          className="w-full max-w-xs"
+          className="w-full"
           onMouseEnter={plugin.current.stop}
           onMouseLeave={plugin.current.reset}
           opts={{
@@ -91,42 +92,38 @@ export default function Testimonial() {
             {testimonials.map((testimonial, index) => (
               <CarouselItem
                 key={index}
-                className="pl-4 md:pl-6 md:basis-1/2 lg:basis-1/3"
+                className="pl-4 md:pl-6 sm:basis-full md:basis-1/2 lg:basis-1/3"
               >
-                <div className="h-full relative">
-                  <div className="text-6xl text-palette-white absolute top-0 left-0">
-                    &quot;
-                  </div>
+                <div className="h-full">
                   <Card className="h-full bg-transparent border-none">
                     <CardContent className="p-6 flex flex-col h-full">
-                      <blockquote className="flex-grow">
-                        <p className="text-palette-white mb-4 italic">
-                          &quot;{testimonial.quote}&quot;
+                      
+                      <blockquote className="flex-grow pt-8">
+                        <p className=" mb-4 italic relative z-10">
+                          {testimonial.quote}
                         </p>
                       </blockquote>
-                      <div className="flex items-center mt-4 pt-4 border-t-[0.5px] border-palette-secondary">
+                      <div className="flex items-center mt-4 pt-4 border-t-[0.5px] border-palette-secondary relative z-10">
                         <div>
-                          <p className="font-semibold text-palette-white">
-                            {testimonial.name}
-                          </p>
+                          <p className="font-semibold ">{testimonial.name}</p>
                           <p className="text-sm text-muted-foreground">
                             {testimonial.position}
                           </p>
                         </div>
                       </div>
                     </CardContent>
+                    
                   </Card>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="relative ">
-            <CarouselPrevious className="left-0 -bottom-10" />
-          <CarouselNext className="left-12 -bottom-10" />
+          <div className="flex justify-center mt-8">
+            <CarouselPrevious className="static transform-none mx-2 bg-transparent border-palette-secondary" />
+            <CarouselNext className="static transform-none mx-2 bg-transparent border-palette-secondary" />
           </div>
-          
         </Carousel>
       </div>
-    </div>
+    </section>
   );
 }
