@@ -1,25 +1,32 @@
-import React from "react";
+import type React from "react"
 
 interface TitleSectionProps {
-  title: string;
-  tagTitle: string;
-  className?: string;
-  children?: React.ReactNode;
+  title: string
+  tagTitle: string
+  alignment?: "left" | "center" | "right"
+  className?: string
+  children?: React.ReactNode
 }
-export const TitleSection = ({
-  title,
-  tagTitle,
-  className,
-  children,
-}: TitleSectionProps) => {
+
+export const TitleSection = ({ title, tagTitle, alignment = "left", className, children }: TitleSectionProps) => {
+  const getAlignmentClasses = () => {
+    switch (alignment) {
+      case "center":
+        return "items-center text-center"
+      case "right":
+        return "items-end text-right"
+      default:
+        return "items-start text-left"
+    }
+  }
+
   return (
-    <div>
-      <div className="flex flex-col justify-between gap-2 md:gap-2">
-        <span className={`text-xs sm:text-sm font-extrabold uppercase text-palette-primary tracking-wide ${className}`}>{tagTitle}</span>
-        <h2 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl tracking-tight font-medium ">
-          {title}
-        </h2>
-      </div>
+    <div className={`flex flex-col justify-between gap-2 md:gap-2 ${getAlignmentClasses()}`}>
+      <span className={`text-xs sm:text-sm font-bold uppercase text-palette-primary tracking-wide ${className}`}>
+        {tagTitle}
+      </span>
+      <h2 className={`text-2xl sm:text-3xl md:text-3xl tracking-tight w-full max-w-xs ${className}`}>{title}</h2>
+      {children && <div className="mt-2">{children}</div>}
     </div>
-  );
-};
+  )
+}

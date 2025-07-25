@@ -1,19 +1,14 @@
 "use client"
 
 import * as React from "react"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false)
   const [scrolled, setScrolled] = React.useState(false)
   const menuRef = React.useRef<HTMLDivElement>(null)
   const buttonRef = React.useRef<HTMLButtonElement>(null)
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
 
   // Efeito para detectar o scroll da página
   React.useEffect(() => {
@@ -66,13 +61,17 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed md:sticky top-0 left-0 right-0 flex items-center justify-between h-20 md:h-24 w-full px-6 md:px-16 z-40 transition-all duration-300 scroll-smooth ${
-        scrolled ? "bg-white/90 shadow-sm" : "bg-transparent"
-      }`}
+      className="z-50 w-full flex items-center justify-between py-6 container mx-auto" 
     >
-      <a href="#inicio">
-        <Image src="/logo.svg" alt="logo" width={128} height={128} />
-      </a>
+      { /* Logo */}
+      <Link href="#inicio" className="text-palette-black flex items-center gap-2">
+        <Image src="/logo.svg" alt="Logo Mendes Advocacia" width={24} height={24} />
+        <div className="flex flex-col -space-y-2">
+          <span>mendes</span>
+          <span>advocacia</span>
+        </div>
+        
+      </Link>
 
       <nav className="hidden lg:flex">
         <ul className="flex gap-6">
@@ -81,7 +80,7 @@ export default function Header() {
               <Link href={`#${item.id}`}>
                 <button
                   role="link"
-                  className="relative text-sm text-muted-foreground after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-palette-secondary after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
+                  className="text-sm text-palette-stone hover:text-palette-black transition-colors duration-200"
                 >
                   {item.name}
                 </button>
@@ -90,43 +89,6 @@ export default function Header() {
           ))}
         </ul>
       </nav>
-      {/* Botão de menu para dispositivos móveis */}
-      <button ref={buttonRef} onClick={toggleMenu} className="lg:hidden focus:outline-none" aria-label="Toggle menu">
-        <div className="space-y-1.5">
-          <span
-            className={`block h-px w-6 bg-muted-foreground transition-all duration-300 ease-out ${
-              isMenuOpen ? "rotate-45 translate-y-1" : ""
-            }`}
-          ></span>
-          <span
-            className={`block h-px w-6 bg-muted-foreground transition-all duration-300 ease-out ${
-              isMenuOpen ? "-rotate-45 -translate-y-1" : ""
-            }`}
-          ></span>
-        </div>
-      </button>
-
-      {isMenuOpen && (
-        <div ref={menuRef} className="absolute top-full left-0 right-0 bg-palette-white shadow-md lg:hidden z-50">
-          <nav className="px-6">
-            <ul className="flex flex-col">
-              {listNav.map((item) => (
-                <li key={item.id}>
-                  <a href={`#${item.id}`} onClick={() => setIsMenuOpen(false)}>
-                    <Button
-                      variant="ghost"
-                      size="lg"
-                      className="text-base text-muted-foreground py-7 px-0 border-t w-full items-center justify-start"
-                    >
-                      {item.name}
-                    </Button>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      )}
     </header>
   )
 }

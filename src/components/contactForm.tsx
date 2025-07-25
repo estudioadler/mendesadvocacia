@@ -23,11 +23,15 @@ export const ContactForm = () => {
               className="min-h-[150px] text-sm"
             />
             <div className="flex gap-4 mt-6">
-            <Link href="#">
-            <Button size={"lg"} className="px-4 rounded-none text-palette-white bg-palette-primary hover:bg-palette-primary/90 transition-colors">
-              Enviar Mensagem
-            </Button>
-          </Link>
+              <Link href="#">
+                <Button
+                  size={"lg"}
+                  variant={"default"}
+                  className=" px-4 rounded-full text-palette-mist"
+                >
+                  Enviar Mensagem
+                </Button>
+              </Link>
             </div>
           </form>
         </div>

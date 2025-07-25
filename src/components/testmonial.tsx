@@ -69,14 +69,13 @@ export default function Testimonial() {
   return (
     <section
       id="depoimentos"
-      className="py-20 bg-palette-white border-b border-palette-secondary"
+      className="container mx-auto py-20 bg-neutral-100 rounded-t-3xl"
     >
-      <div className="container-x mx-auto flex flex-col gap-12 relative">
+      <div className="flex flex-col gap-16">
         <TitleSection
           title="O que nossos clientes dizem"
           tagTitle="Depoimentos"
         />
-        <Quote className="absolute top-24 left-6 w-8 h-8" strokeWidth={1} />
 
         <Carousel
           plugins={[plugin.current]}
@@ -95,10 +94,10 @@ export default function Testimonial() {
                 className="pl-4 md:pl-6 sm:basis-full md:basis-1/2 lg:basis-1/3"
               >
                 <div className="h-full">
-                  <Card className="h-full bg-transparent border-none">
+                  <Card className="h-full bg-palette-mist border-none rounded-3xl relative">
                     <CardContent className="p-6 flex flex-col h-full">
                       
-                      <blockquote className="flex-grow pt-8">
+                      <blockquote className="flex-grow pt-16">
                         <p className=" mb-4 italic relative z-10">
                           {testimonial.quote}
                         </p>
@@ -112,15 +111,15 @@ export default function Testimonial() {
                         </div>
                       </div>
                     </CardContent>
-                    
+                    <Quote className="absolute top-6 left-6 w-8 h-8 z-50" strokeWidth={1} />
                   </Card>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex justify-center mt-8">
-            <CarouselPrevious className="static transform-none mx-2 bg-transparent border-palette-secondary" />
-            <CarouselNext className="static transform-none mx-2 bg-transparent border-palette-secondary" />
+          <div className="flex justify-start mt-16">
+            <CarouselPrevious variant={"default"} className="static transform-none mx-2 rounded-3xl" />
+            <CarouselNext variant={"default"} className="static transform-none mx-2 rounded-3xl" />
           </div>
         </Carousel>
       </div>

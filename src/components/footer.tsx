@@ -4,12 +4,17 @@ import Link from "next/link";
 export const Footer = () => {
   return (
     <footer>
-      <div className="max-w-screen-2xl px-4 py-16 container-x">
+      <div className="w-full container mx-auto py-20">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
-            <Link href="/">
-              <Image src="/logo.svg" alt="logo" width={128} height={128} />
-            </Link>
+            <Link href="#inicio" className="text-palette-black flex items-center gap-2">
+        <Image src="/logo.svg" alt="Logo Mendes Advocacia" width={24} height={24} />
+        <div className="flex flex-col -space-y-2">
+          <span>mendes</span>
+          <span>advocacia</span>
+        </div>
+        
+      </Link>
             <p className="max-w-xs mt-4 text-sm text-neutral-600">
               Defesa dos seus direitos trabalhistas com excelência e dedicação.
             </p>

@@ -1,8 +1,43 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const manrope = Manrope({ subsets: ["latin"], weight: ["200", "300" ,"400", "500", "600", "700", "800"] });
+const clashGrotesk = localFont({
+  src: [
+    {
+      path: './fonts/ClashGrotesk-Extralight.woff2',
+      weight: '200',
+      style: 'normal',
+    },
+    {
+      path: './fonts/ClashGrotesk-Light.woff2',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: './fonts/ClashGrotesk-Regular.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/ClashGrotesk-Medium.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: './fonts/ClashGrotesk-Semibold.woff2',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: './fonts/ClashGrotesk-Bold.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-clash-grotesk',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +50,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="scroll-smooth md:scroll-pt-24 scroll-pt-20 overflow-scroll">
-      <body className={manrope.className}>{children}</body>
+    <html lang="pt-BR" className="scroll-smooth overflow-scroll">
+      <body className={clashGrotesk.className}>{children}</body>
     </html>
   );
 }

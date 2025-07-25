@@ -22,14 +22,31 @@ export default function Benefits() {
         "Oferecemos suporte integral durante todo o processo judicial ou administrativo, incluindo a preparação de documentos e acompanhamento constante do caso, garantindo transparência e comunicação clara.",
       icon: <Shield className="h-8 w-8 text-primary" strokeWidth={1} />,
     },
+    // Add more benefits as needed
+    {
+      title: "Experiência Reconhecida",
+      description:
+        "Nossa equipe é composta por profissionais com vasta experiência em direito do trabalho, garantindo que você receba a melhor representação possível.",
+      icon: <Shield className="h-8 w-8 text-primary" strokeWidth={1} />,
+    },
+    {      title: "Resultados Comprovados",
+      description:
+        "Temos um histórico comprovado de sucesso em casos trabalhistas, com uma taxa de satisfação elevada entre nossos clientes.",
+      icon: <Shield className="h-8 w-8 text-primary" strokeWidth={1} />,
+    },
+    {      title: "Acessibilidade e Transparência",
+      description:
+        "Mantemos nossos clientes informados e envolvidos em todas as etapas do processo, garantindo que você esteja sempre ciente do andamento do seu caso.",
+      icon: <Shield className="h-8 w-8 text-primary" strokeWidth={1} />,
+    },
   ]
 
   return (
-    <section id="beneficios" className="container-x mx-auto py-20 flex flex-col gap-12 border-b border-palette-secondary">
+    <section id="beneficios" className="container mx-auto py-20 flex flex-col gap-12 rounded-t-3xl">
       <TitleSection title="Por que escolher a Mendes Advocacia" tagTitle="Benefícios" />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {benefits.map((benefit, index) => (
-          <Card key={index} className="h-full flex flex-col items-start bg-transparent border-none relative">
+          <Card key={index} className="h-full flex flex-col items-start bg-neutral-300 border-none relative rounded-3xl">
             <CardHeader className="flex flex-col gap-2">
               <div>{benefit.icon}</div>
               <CardTitle className="text-xl font-medium">{benefit.title}</CardTitle>
