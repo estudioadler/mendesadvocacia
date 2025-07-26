@@ -25,7 +25,7 @@ export const TitleSection = ({ title, tagTitle, alignment = "left", className, c
       <span className={`text-xs sm:text-sm font-bold uppercase text-palette-primary tracking-wide ${className}`}>
         {tagTitle}
       </span>
-      <h2 className={`text-2xl sm:text-3xl md:text-3xl tracking-tight w-full max-w-xs ${className}`}>{title}</h2>
+      <h2 className={`text-2xl sm:text-3xl md:text-3xl tracking-wide w-full max-w-xs ${className}`}>{title}</h2>
       {children && <div className="mt-2">{children}</div>}
     </div>
   )
