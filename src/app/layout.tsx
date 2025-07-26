@@ -50,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="scroll-smooth overflow-scroll">
+    <html lang="pt-BR" className="scroll-smooth overflow-scroll antialiased">
       <body className={clashGrotesk.className}>{children}</body>
     </html>
   );

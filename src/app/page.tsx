@@ -11,6 +11,7 @@ import { Card } from "@/components/ui/card";
 import { Award, Briefcase, Shield, Users } from "lucide-react";
 import Benefits from "@/components/benefits";
 import { Statistic } from "@/components/statistic";
+import { ContactFloat } from "@/components/contactFloat";
 
 export default function Home() {
   return (
@@ -18,8 +19,8 @@ export default function Home() {
       {/* <Preloader /> */}
       <Header />
       <Hero />
+      <ContactFloat />
       <Statistic />
-
       <AboutArea />
       <LegalServicesCards />
       <Benefits />

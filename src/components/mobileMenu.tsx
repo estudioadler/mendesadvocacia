@@ -46,11 +46,15 @@ export default function MobileMenu({ isOpen, onClose, listNav }: MobileMenuProps
 
       {/* Menu Content */}
       <div
-        className={`absolute top-20 left-1/2 transform -translate-x-1/2 w-[100vw] max-w-sm bg-palette-mist rounded-b-3xl shadow-2xl border border-palette-stone/20 overflow-hidden transition-all duration-200 ${
+       className={`absolute bg-palette-mist rounded-2xl shadow-2xl border border-gray-100 overflow-hidden ${
+          isOpen 
+              ? "top-20 w-[90%]" // Mobile: larger width
+              : "top-24 right-8 min-w-80" // Desktop: posição original
+          } ${
           isOpen
-            ? "scale-100 opacity-100 translate-y-0"
-            : "scale-95 opacity-0 -translate-y-4"
-        }`}
+              ? "scale-100 opacity-100 translate-y-0"
+              : "scale-95 opacity-0 -translate-y-4"
+          }`}
       >
         {/* Links do Menu */}
         <nav className="py-2">

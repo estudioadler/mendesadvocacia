@@ -102,7 +102,7 @@ export default function LegalServicesCards() {
               <CardTitle className="text-xl font-normal text-palette-mist">{service.title}</CardTitle>
             </CardHeader>
             <CardContent className="flex-grow">
-              <CardDescription className="text-lg lg:text-xl">{service.description}</CardDescription>
+              <CardDescription className="text-lg">{service.description}</CardDescription>
             </CardContent>
           </Card>
         ))}

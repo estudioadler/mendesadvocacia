@@ -57,9 +57,9 @@ export default function Component() {
   }
 
   return (
-    <section id="faq" className="container mx-auto py-20 flex flex-col gap-12 rounded-t-3xl bg-neutral-100">
+    <section id="faq" className="container mx-auto px-6 md:px-8 py-20 flex flex-col gap-12 rounded-t-3xl bg-neutral-100">
     <TitleSection title="Perguntas Frequentes" tagTitle="FAQ" alignment="center"/>
-    <div className="w-full p-6 space-y-4">
+    <div className="w-full space-y-4">
       {faqData.map((item) => {
         const isExpanded = expandedItem === item.id
 

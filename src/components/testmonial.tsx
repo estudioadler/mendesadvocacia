@@ -65,7 +65,7 @@ const testimonials = [
 ];
 
 export default function Testimonial() {
-  const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
+  const plugin = useRef(Autoplay({ delay: 4000, stopOnInteraction: true }));
   return (
     <section
       id="depoimentos"
@@ -75,6 +75,7 @@ export default function Testimonial() {
         <TitleSection
           title="O que nossos clientes dizem"
           tagTitle="Depoimentos"
+          className="text-palette-mist" 
         />
 
         <Carousel
@@ -98,14 +99,14 @@ export default function Testimonial() {
                     <CardContent className="p-6 flex flex-col h-full">
                       
                       <blockquote className="flex-grow pt-16">
-                        <p className=" mb-4 italic relative z-10">
+                        <p className="text-lg mb-4 relative z-10">
                           {testimonial.quote}
                         </p>
                       </blockquote>
                       <div className="flex items-center mt-4 pt-4 border-t-[0.5px] border-palette-secondary relative z-10">
                         <div>
-                          <p className="font-semibold ">{testimonial.name}</p>
-                          <p className="text-sm text-muted-foreground">
+                          <p>{testimonial.name}</p>
+                          <p className=" text-palette-stone text-sm">
                             {testimonial.position}
                           </p>
                         </div>

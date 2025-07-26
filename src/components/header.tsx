@@ -3,13 +3,11 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
 import FloatingMenu from "./floatingMenu";
 import MobileMenu from "./mobileMenu";
-
+import { EqualsIcon, X } from "@phosphor-icons/react/dist/ssr";
 
 export default function Header() {
-  const [headerHidden, setHeaderHidden] = React.useState(false);
   const [showHamburger, setShowHamburger] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [isMobile, setIsMobile] = React.useState(false);
@@ -23,57 +21,33 @@ export default function Header() {
     { name: "Contato", id: "contato" },
   ];
 
-  // Detecta se é mobile
   React.useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1024);
     };
-    
+
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Detecta scroll com delay para transições (apenas desktop)
   React.useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100 && !isMobile) {
-        // Primeiro esconde o header (apenas desktop)
-        setHeaderHidden(true);
-        // Depois de 200ms mostra o hamburger
-        setTimeout(() => {
-          setShowHamburger(true);
-        }, 200);
-      } else if (window.scrollY <= 100) {
-        // Primeiro esconde o hamburger
+      if (window.scrollY > 100) {
+        setShowHamburger(true);
+      } else {
         setShowHamburger(false);
         setMobileMenuOpen(false);
-        // Depois de 200ms mostra o header (apenas desktop)
-        if (!isMobile) {
-          setTimeout(() => {
-            setHeaderHidden(false);
-          }, 200);
-        }
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isMobile]);
-
-  // Fecha o menu quando clica em um link
-  const handleLinkClick = () => {
-    setMobileMenuOpen(false);
-  };
+  }, []);
 
   return (
     <>
-      {/* Header Normal - Desktop e Mobile */}
-      <header 
-        className={`fixed top-0 z-50 bg-palette-mist w-full flex items-center justify-between py-5 container mx-auto px-6 md:px-8 transition-all duration-200 ${
-          headerHidden && !isMobile ? 'opacity-0 pointer-events-none translate-y-[-20px]' : 'opacity-100 pointer-events-auto translate-y-0'
-        }`}
-      >
+      <header className="z-50 bg-palette-mist w-full flex items-center justify-between py-5 container mx-auto px-6 md:px-8">
         {/* Logo */}
         <Link href="#" className="text-palette-black flex items-center gap-2">
           <Image
@@ -88,15 +62,15 @@ export default function Header() {
           </div>
         </Link>
 
-        {/* Menu normal - desktop */}
-        <nav className="hidden lg:flex">
+        {/* Menu desktop */}
+        <nav className="hidden md:flex">
           <ul className="flex gap-6">
             {listNav.map((item) => (
               <li key={item.id}>
                 <Link href={`#${item.id}`}>
                   <button
                     role="link"
-                    className="text-sm text-palette-stone hover:text-palette-black transition-colors duration-200"
+                    className=" text-palette-stone hover:text-palette-black transition-colors duration-200"
                   >
                     {item.name}
                   </button>
@@ -106,30 +80,39 @@ export default function Header() {
           </ul>
         </nav>
 
-        {/* Menu hamburger - mobile sempre visível */}
-        <button 
-          className="lg:hidden p-2 text-palette-black"
+        {/* Botão do menu mobile com z-50 para ficar acima do backdrop */}
+        <button
+          className={`bg-palette-mist rounded-full z-50 sm:hidden ${
+            isMobile
+              ? "p-3" // Mobile: padding menor
+              : "p-4" // Desktop: padding original
+          }`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
         >
           {mobileMenuOpen ? (
-            <X className="w-6 h-6" />
+            <X
+              className={`text-palette-black ${
+                isMobile ? "size-6" : "size-7"
+              }`}
+            />
           ) : (
-            <Menu className="w-6 h-6" />
+            <EqualsIcon
+              className={`text-palette-black ${
+                isMobile ? "size-6" : "size-7"
+              }`}
+            />
           )}
         </button>
       </header>
 
-      {/* Menu Flutuante - Desktop apenas */}
-      <div className="hidden lg:block">
-        <FloatingMenu 
-          isVisible={showHamburger} 
-          listNav={listNav}
-        />
-      </div>
+      <FloatingMenu
+        isVisible={showHamburger}
+        listNav={listNav}
+        isMobile={isMobile}
+      />
 
-      {/* Menu Mobile */}
-      <MobileMenu 
+      <MobileMenu
         isOpen={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
         listNav={listNav}
