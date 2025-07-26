@@ -15,6 +15,7 @@ export const ContactFloat = () => {
             href="https://wa.me/seunumerowhatsapp"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="WhatsApp"
             className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow"
           >
             <Wheat size={20} />
@@ -22,6 +23,7 @@ export const ContactFloat = () => {
           <Link
             target="_blank"
             href="mailto:seuemail@exemplo.com"
+            aria-label="Email"
             className="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-full shadow"
           >
             <Mail size={20} />
@@ -29,6 +31,8 @@ export const ContactFloat = () => {
           <Link
             target="_blank"
             href="tel:+5511999999999"
+            aria-label="Telefone"
+
             className="bg-red-500 hover:bg-red-600 text-white p-4 rounded-full shadow"
           >
             <Phone size={20} />
@@ -37,7 +41,8 @@ export const ContactFloat = () => {
       )}
       <Button
         onClick={() => setOpen(!open)}
-        className="bg-palette-graphite  text-palette-mist p-4 rounded-full shadow-lg transition-all"
+        aria-label="Abrir/Fechar Contato"
+        className="bg-palette-graphite text-palette-mist p-4 rounded-full shadow-lg transition-all"
       >
         {open ? <X size={24} /> : <MessageCircle size={24} />}
       </Button>

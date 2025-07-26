@@ -2,16 +2,15 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "./ui/button";
 
 export const Hero = () => {
   const [offset, setOffset] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Detecta scroll com melhor desempenho
   useEffect(() => {
     let ticking = false;
-
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
@@ -21,47 +20,53 @@ export const Hero = () => {
         ticking = true;
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Detecta se é mobile
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1024);
     };
-
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Evita recarregar vídeo em resize
   const videoSrc = useMemo(() => {
     return isMobile ? "/hero-video-mobile.mp4" : "/hero-video-desktop.mp4";
   }, [isMobile]);
 
-  // Define o poster correto
   const videoPoster = useMemo(() => {
     return isMobile ? "/hero-poster-mobile.jpg" : "/hero-poster.jpg";
   }, [isMobile]);
 
   return (
     <section className="flex flex-col gap-10 mb-20 md:mb-32 px-1.5">
-      {/* Vídeo com efeito parallax */}
+      {/* Container do vídeo e imagem LCP */}
       <div className="relative w-full h-[450px] overflow-hidden rounded-3xl">
+        {/* Imagem do poster com prioridade (LCP real) */}
+        <Image
+          src={videoPoster}
+          alt="Imagem de fundo da seção principal"
+          fill
+          priority
+          fetchPriority="high"
+          className="object-cover object-center md:object-right-top"
+        />
+
+        {/* Vídeo sobreposto à imagem */}
         <video
           className="absolute top-0 left-0 w-full h-full object-cover object-center md:object-right-top"
           src={videoSrc}
-          poster={videoPoster}
           width={1400}
           height={500}
           autoPlay
           loop
           muted
           playsInline
-          preload="none"
+          preload="auto"
+          poster={videoPoster}
           style={{
             transform: isMobile
               ? "scale(1.1)"
