@@ -92,19 +92,18 @@ export default function LegalServicesCards() {
   ]
 
   return (
-    <section id="servicos" className="container mx-auto py-20 flex flex-col gap-16 bg-palette-black rounded-t-3xl">
+    <section id="servicos" className="container mx-auto px-6 md:px-8 py-20 flex flex-col gap-16 bg-palette-black rounded-t-2xl">
       <TitleSection title="Como podemos te ajudar" tagTitle="Serviços" className="text-palette-mist" />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((service, index) => (
-          <Card key={index} className="h-full flex flex-col items-start bg-transparent border-none relative">
+          <Card key={index} className="h-full flex flex-col items-start bg-transparent border border-palette-stone/20 rounded-2xl">
             <CardHeader className="flex flex-col gap-2">
               <div>{service.icon}</div>
-              <CardTitle className="text-xl font-medium text-palette-mist">{service.title}</CardTitle>
+              <CardTitle className="text-xl font-normal text-palette-mist">{service.title}</CardTitle>
             </CardHeader>
             <CardContent className="flex-grow">
-              <CardDescription>{service.description}</CardDescription>
+              <CardDescription className="text-lg lg:text-xl">{service.description}</CardDescription>
             </CardContent>
-            <div className="w-px h-full bg-palette-mist/10 absolute top-0 left-0" />
           </Card>
         ))}
       </div>

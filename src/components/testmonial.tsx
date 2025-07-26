@@ -69,7 +69,7 @@ export default function Testimonial() {
   return (
     <section
       id="depoimentos"
-      className="container mx-auto py-20 bg-neutral-100 rounded-t-3xl"
+      className="container mx-auto px-6 md:px-8 py-20 bg-palette-pine rounded-t-2xl"
     >
       <div className="flex flex-col gap-16">
         <TitleSection
@@ -94,7 +94,7 @@ export default function Testimonial() {
                 className="pl-4 md:pl-6 sm:basis-full md:basis-1/2 lg:basis-1/3"
               >
                 <div className="h-full">
-                  <Card className="h-full bg-palette-mist border-none rounded-3xl relative">
+                  <Card className="h-full bg-palette-mist border-none rounded-2xl relative">
                     <CardContent className="p-6 flex flex-col h-full">
                       
                       <blockquote className="flex-grow pt-16">

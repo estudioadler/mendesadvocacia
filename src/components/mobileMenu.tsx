@@ -46,7 +46,7 @@ export default function MobileMenu({ isOpen, onClose, listNav }: MobileMenuProps
 
       {/* Menu Content */}
       <div
-        className={`absolute top-20 left-1/2 transform -translate-x-1/2 w-[100vw] max-w-sm bg-palette-mist rounded-b-3xl shadow-2xl border border-gray-100 overflow-hidden transition-all duration-200 ${
+        className={`absolute top-20 left-1/2 transform -translate-x-1/2 w-[100vw] max-w-sm bg-palette-mist rounded-b-3xl shadow-2xl border border-palette-stone/20 overflow-hidden transition-all duration-200 ${
           isOpen
             ? "scale-100 opacity-100 translate-y-0"
             : "scale-95 opacity-0 -translate-y-4"
@@ -60,7 +60,7 @@ export default function MobileMenu({ isOpen, onClose, listNav }: MobileMenuProps
                 <Link href={`#${item.id}`} onClick={handleLinkClick}>
                   <button
                     role="link"
-                    className="w-full text-left px-8 py-3 text-palette-stone hover:text-palette-black hover:bg-gray-50 transition-all duration-200 flex items-center justify-between group"
+                    className="w-full text-left px-6 py-3 text-palette-stone hover:text-palette-black hover:bg-gray-50 transition-all duration-200 flex items-center justify-between group"
                   >
                     <span>{item.name}</span>
                     <span className="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-200">

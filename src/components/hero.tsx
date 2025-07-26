@@ -17,11 +17,11 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="flex flex-col gap-10 my-20 md:mb-32 px-1.5">
+    <section className="flex flex-col gap-10 my-20 md:mb-32">
       {/* Vídeo com efeito parallax */}
-      <div className="relative w-full h-60 md:h-[450px] overflow-hidden  rounded-3xl">
+      <div className="relative w-full h-60 md:h-[450px] overflow-hidden rounded-3xl">
         <video
-          className="absolute top-0 left-0 w-full h-full object-cover object-right-top"
+          className="absolute top-0 left-0 w-full h-full object-cover object-right-top px-1.5"
           src="/hero-video1.mp4"
           width={1400}
           height={500}
@@ -37,7 +37,7 @@ export const Hero = () => {
       </div>
 
       {/* Texto principal */}
-      <div className="w-full flex-col md:flex justify-between container mx-auto px-4 md:px-8">
+      <div className="w-full flex-col md:flex justify-between container mx-auto px-6 md:px-8">
         <h1 className="text-3xl w-full max-w-md">
           Advocacia Trabalhista descomplicada e eficiente.
         </h1>

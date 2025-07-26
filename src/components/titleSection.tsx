@@ -22,7 +22,7 @@ export const TitleSection = ({ title, tagTitle, alignment = "left", className, c
 
   return (
     <div className={`flex flex-col justify-between gap-2 md:gap-2 ${getAlignmentClasses()}`}>
-      <span className={`text-xs sm:text-sm font-bold uppercase text-palette-primary tracking-wide ${className}`}>
+      <span className={`text-sm font-medium uppercase text-palette-stone tracking-wide ${className}`}>
         {tagTitle}
       </span>
       <h2 className={`text-2xl sm:text-3xl md:text-3xl tracking-wide w-full max-w-xs ${className}`}>{title}</h2>

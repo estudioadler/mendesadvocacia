@@ -70,7 +70,7 @@ export default function Header() {
     <>
       {/* Header Normal - Desktop e Mobile */}
       <header 
-        className={`fixed top-0 z-50 bg-palette-mist w-full flex items-center justify-between py-5 container mx-auto transition-all duration-200 ${
+        className={`fixed top-0 z-50 bg-palette-mist w-full flex items-center justify-between py-5 container mx-auto px-6 md:px-8 transition-all duration-200 ${
           headerHidden && !isMobile ? 'opacity-0 pointer-events-none translate-y-[-20px]' : 'opacity-100 pointer-events-auto translate-y-0'
         }`}
       >
