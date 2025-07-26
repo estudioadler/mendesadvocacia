@@ -75,7 +75,7 @@ export default function Component() {
               className="w-full p-6 text-left flex items-center justify-between"
             >
               <h3
-                className={`text-palette-stone font-medium pr-4 transition-colors duration-200 ${
+                className={`font-medium pr-4 transition-colors duration-200 ${
                   !isExpanded ? "hover:text-palette-black" : ""
                 }`}
               >

@@ -46,15 +46,15 @@ export default function Benefits() {
       <TitleSection title="Por que escolher a Mendes Advocacia" tagTitle="Benefícios" />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {benefits.map((benefit, index) => (
-          <Card key={index} className="h-full flex flex-col items-start bg-palette-stone/10 border-none relative rounded-3xl">
+          <Card key={index} className="h-full flex flex-col items-start bg-palette-stone/10 border-none rounded-3xl">
             <CardHeader className="flex flex-col gap-2">
               <div>{benefit.icon}</div>
               <CardTitle className="text-xl font-medium">{benefit.title}</CardTitle>
             </CardHeader>
             <CardContent className="flex-grow">
-              <CardDescription className="text-lg lg:text-xl">{benefit.description}</CardDescription>
+              <CardDescription className="text-lg text-muted-foreground">{benefit.description}</CardDescription>
             </CardContent>
-            <div className="w-0.5 h-full bg-palette-secondary absolute top-0 left-0" />
+            
           </Card>
         ))}
       </div>

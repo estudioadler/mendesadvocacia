@@ -47,14 +47,14 @@ export const Statistic = () => {
         {statisticsData.map((stat, i) => (
           <Card key={stat.id} className="p-6 bg-transparent outline outline-1 outline-palette-stone/20 border-0">
             <div className="flex items-center gap-2">
-              <h3
+              <div
                 className="font-medium text-5xl"
                 ref={(el) => { refs.current[i] = el; }}
               >
                 0
-              </h3>
+              </div>
             </div>
-            <p className="text-palette-stone">{stat.label}</p>
+            <p className="text-muted-foreground">{stat.label}</p>
           </Card>
         ))}
       </div>

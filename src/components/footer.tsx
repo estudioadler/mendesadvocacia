@@ -61,11 +61,11 @@ export const Footer = () => {
                 <span>advocacia</span>
               </div>
             </Link>
-            <p className="max-w-xs mt-4 text-palette-stone text-lg">
+            <p className="max-w-xs mt-4 text-muted-foreground text-lg">
               Defesa dos seus direitos trabalhistas com excelência e dedicação.
             </p>
 
-            <div className="flex flex-col gap-2 mt-6 text-neutral-600">
+            <div className="flex flex-col gap-2 mt-6 text-muted-foreground">
               <p className="font-medium">Redes Sociais</p>
               {socialLinks.map(({ name, href }) => (
                 <Link
@@ -85,7 +85,7 @@ export const Footer = () => {
             {Object.entries(footerLinks).map(([section, links]) => (
               <div key={section}>
                 <p className="font-medium capitalize">{section}</p>
-                <nav className="flex flex-col mt-4 space-y-2 text-neutral-500">
+                <nav className="flex flex-col mt-4 space-y-2 text-muted-foreground">
                   {links.map(({ name, href }) => (
                     <Link key={name} href={href} className="hover:opacity-75">
                       {name}
