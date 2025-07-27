@@ -49,7 +49,7 @@ export default function Benefits() {
           <Card key={index} className="h-full flex flex-col items-start bg-palette-stone/10 border-none rounded-3xl">
             <CardHeader className="flex flex-col gap-2">
               <div>{benefit.icon}</div>
-              <CardTitle className="text-xl font-medium">{benefit.title}</CardTitle>
+              <CardTitle className="text-2xl font-normal">{benefit.title}</CardTitle>
             </CardHeader>
             <CardContent className="flex-grow">
               <CardDescription className="text-lg text-muted-foreground">{benefit.description}</CardDescription>

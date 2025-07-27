@@ -75,7 +75,7 @@ export default function Component() {
               className="w-full p-6 text-left flex items-center justify-between"
             >
               <h3
-                className={`font-medium pr-4 transition-colors duration-200 ${
+                className={`font-normal text-xl pr-4 transition-colors duration-200 ${
                   !isExpanded ? "hover:text-palette-black" : ""
                 }`}
               >
@@ -92,7 +92,7 @@ export default function Component() {
 
             {isExpanded && (
               <div className="px-6 pb-6">
-                <p className="text-white/90 leading-relaxed">{item.answer}</p>
+                <p className="text-white/90 leading-relaxed text-lg">{item.answer}</p>
               </div>
             )}
           </div>

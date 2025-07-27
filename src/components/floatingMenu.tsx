@@ -92,7 +92,7 @@ export default function FloatingMenu({
         <div
           className={`absolute bg-palette-mist rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transform transition-all duration-200 ${
             isMobile 
-              ? "top-20 right-4 w-80" // Mobile: fullwidth com margens
+              ? "top-20 right-4 left-4" // Mobile: fullwidth com margens
               : "top-24 right-8 min-w-80" // Desktop: posição original
           } ${
             menuOpen && isVisible
@@ -101,7 +101,7 @@ export default function FloatingMenu({
           }`}
         >
           {/* Links do Menu */}
-          <nav className="py-2">
+          <nav className="py-4">
             <ul>
               {listNav.map((item) => (
                 <li key={item.id}>
@@ -126,19 +126,13 @@ export default function FloatingMenu({
           </nav>
 
           {/* Footer do Menu (CTA) */}
-          <div className={` ${
-            isMobile ? "px-4 pb-4" : "px-6 pb-6"
-          }`}>
-            <Link href="#contato" onClick={handleLinkClick}>
-              <Button className={`w-full rounded-full ${
-                isMobile 
-                  ? "py-3 px-4 text-base" // Mobile: botão maior
-                  : "py-2 px-4 text-lg" // Desktop: tamanho original
-              }`}>
-                Fale Conosco
-              </Button>
-            </Link>
-          </div>
+          <div className="px-6 pb-6 bg-palette-mist">
+          <Link href="#contato" onClick={handleLinkClick}>
+            <Button size={"lg"} className="w-full rounded-full">
+              Fale Conosco
+            </Button>
+          </Link>
+        </div>
         </div>
       </div>
     </>

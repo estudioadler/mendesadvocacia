@@ -99,14 +99,14 @@ export default function Testimonial() {
                     <CardContent className="p-6 flex flex-col h-full">
                       
                       <blockquote className="flex-grow pt-16">
-                        <p className="text-lg mb-4 relative z-10">
+                        <p className="text-lg text-muted-foreground mb-4 relative z-10">
                           {testimonial.quote}
                         </p>
                       </blockquote>
                       <div className="flex items-center mt-4 pt-4 border-t-[0.5px] border-palette-secondary relative z-10">
                         <div>
-                          <p>{testimonial.name}</p>
-                          <p className=" text-palette-stone text-sm">
+                          <p className="text-lg">{testimonial.name}</p>
+                          <p className=" text-palette-stone text-lg">
                             {testimonial.position}
                           </p>
                         </div>

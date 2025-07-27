@@ -57,7 +57,7 @@ export default function MobileMenu({ isOpen, onClose, listNav }: MobileMenuProps
           }`}
       >
         {/* Links do Menu */}
-        <nav className="py-2">
+        <nav className="py-4">
           <ul>
             {listNav.map((item) => (
               <li key={item.id}>
@@ -80,7 +80,7 @@ export default function MobileMenu({ isOpen, onClose, listNav }: MobileMenuProps
         {/* Footer do Menu (CTA) */}
         <div className="px-6 pb-6 bg-palette-mist">
           <Link href="#contato" onClick={handleLinkClick}>
-            <Button className="w-full px-4 rounded-full">
+            <Button size={"lg"} className="w-full rounded-full">
               Fale Conosco
             </Button>
           </Link>

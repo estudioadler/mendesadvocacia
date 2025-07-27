@@ -99,7 +99,7 @@ export default function LegalServicesCards() {
           <Card key={index} className="h-full flex flex-col items-start bg-transparent border border-palette-stone/20 rounded-2xl">
             <CardHeader className="flex flex-col gap-2">
               <div>{service.icon}</div>
-              <CardTitle className="text-xl font-normal text-palette-mist">{service.title}</CardTitle>
+              <CardTitle className="text-2xl font-normal text-palette-mist">{service.title}</CardTitle>
             </CardHeader>
             <CardContent className="flex-grow">
               <CardDescription className="text-lg font-light text-palette-mist">{service.description}</CardDescription>

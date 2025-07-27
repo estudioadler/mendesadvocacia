@@ -14,20 +14,24 @@ export const ContactForm = () => {
             title="Estamos prontos para ouvir você e defender seus direitos."
             tagTitle="Entre em contato"
           />
-          <form className="space-y-6">
-            <Input placeholder="Nome completo" />
-            <Input placeholder="Telefone/WhatsApp" />
-            <Input placeholder="E-mail" type="email" />
-            <Textarea
-              placeholder="Descreva brevemente seu caso"
-              className="min-h-[150px] text-sm"
-            />
+          <form>
+            <div className="outline outline-1 outline-palette-stone/20 p-4 rounded-2xl">
+              <Input placeholder="Nome completo"  className="text-lg rounded-none shadow-none  border-0 border-b-[1px] border-palette-stone/20" />
+              <Input placeholder="Telefone/WhatsApp"  className="text-lg rounded-none shadow-none  border-0 border-b-[1px] border-palette-stone/20" />
+              <Input placeholder="E-mail" type="email" className="text-lg rounded-none shadow-none  border-0 border-b-[1px] border-palette-stone/20"/>
+              <Textarea
+                placeholder="Descreva brevemente seu caso"
+                className="text-lg rounded-none shadow-none  border-0"
+                rows={8}
+              />
+            </div>
+
             <div className="flex gap-4 mt-6">
               <Link href="#">
                 <Button
                   size={"lg"}
                   variant={"default"}
-                  className=" px-4 rounded-full text-palette-mist"
+                  className="px-6 rounded-full text-palette-mist"
                 >
                   Enviar Mensagem
                 </Button>
