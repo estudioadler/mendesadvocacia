@@ -7,8 +7,6 @@ import { Hero } from "@/components/hero";
 import LegalServicesCards from "@/components/legalServicesCards";
 import Preloader from "@/components/preloader";
 import Testimonial from "@/components/testmonial";
-import { Card } from "@/components/ui/card";
-import { Award, Briefcase, Shield, Users } from "lucide-react";
 import Benefits from "@/components/benefits";
 import { Statistic } from "@/components/statistic";
 import { ContactFloat } from "@/components/contactFloat";
@@ -16,7 +14,7 @@ import { ContactFloat } from "@/components/contactFloat";
 export default function Home() {
   return (
     <>
-      {/* <Preloader /> */}
+      <Preloader />
       <Header />
       <Hero />
       <ContactFloat />

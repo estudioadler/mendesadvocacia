@@ -93,7 +93,7 @@ export default function FloatingMenu({
           className={`absolute bg-palette-mist rounded-2xl shadow-2xl border border-gray-100 overflow-hidden transform transition-all duration-200 ${
             isMobile 
               ? "top-20 right-4 left-4" // Mobile: fullwidth com margens
-              : "top-24 right-8 min-w-80" // Desktop: posição original
+              : "top-28 right-8 min-w-80" // Desktop: posição original
           } ${
             menuOpen && isVisible
               ? "scale-100 opacity-100 translate-y-0"

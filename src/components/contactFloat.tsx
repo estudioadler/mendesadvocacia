@@ -9,7 +9,7 @@ export const ContactFloat = () => {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
 
   return (
-    <div className="fixed bottom-6 md:bottom-8 right-6 md:right-8 z-50 flex flex-col items-end gap-2">
+    <div className="fixed bottom-6 md:bottom-8 right-6 md:right-8 z-40 flex flex-col items-end gap-2">
       {open && (
         <>
           <Link
@@ -40,7 +40,7 @@ export const ContactFloat = () => {
         </>
       )}
       <button
-        className={`bg-palette-graphite shadow-sm rounded-full hover:shadow-xl transition-shadow duration-200 ${
+        className={`bg-palette-black shadow-sm rounded-full hover:shadow-xl transition-shadow duration-200 ${
           isMobile
             ? "p-4" // Mobile: padding menor
             : "p-4" // Desktop: padding original

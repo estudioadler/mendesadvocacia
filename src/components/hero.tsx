@@ -136,7 +136,7 @@ export const Hero = () => {
 
       {/* Texto principal */}
       <div className="w-full flex-col md:flex justify-between container mx-auto px-3.5 md:px-8">
-        <h1 className="text-3xl w-full max-w-md">Advocacia Trabalhista descomplicada e eficiente.</h1>
+        <h1 className="text-3xl md:text-4xl w-full max-w-md">Advocacia Trabalhista descomplicada e eficiente.</h1>
 
         <div className="flex flex-col md:flex-row gap-2 mt-6">
           <Link href="#">

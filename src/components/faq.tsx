@@ -67,7 +67,7 @@ export default function Component() {
           <div
             key={item.id}
             className={`rounded-2xl transition-all duration-300 max-w-4xl mx-auto ${
-              isExpanded ? "bg-palette-black text-palette-mist" : "bg-neutral-200 text-palette-graphite"
+              isExpanded ? "bg-palette-graphite text-palette-mist" : "bg-palette-mist text-palette-graphite"
             }`}
           >
             <button
@@ -83,7 +83,7 @@ export default function Component() {
               </h3>
               <div
                 className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${
-                  isExpanded ? "bg-neutral-100 text-palette-graphite" : "bg-palette-black text-palette-mist"
+                  isExpanded ? "bg-neutral-100 text-palette-graphite" : "bg-palette-graphite text-palette-mist"
                 }`}
               >
                 {isExpanded ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}

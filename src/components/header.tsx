@@ -47,7 +47,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="z-50 bg-palette-mist w-full flex items-center justify-between py-5 container mx-auto px-6 md:px-8">
+      <header className="z-50 bg-palette-mist w-full flex items-center justify-between py-4 container mx-auto px-6 md:px-8">
         {/* Logo */}
         <Link href="#" className="text-palette-black flex items-center gap-2">
           <Image

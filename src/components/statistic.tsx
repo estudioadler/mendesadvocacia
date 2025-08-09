@@ -54,7 +54,7 @@ export const Statistic = () => {
                 0
               </div>
             </div>
-            <p className="text-muted-foreground">{stat.label}</p>
+            <p className="text-lg text-muted-foreground">{stat.label}</p>
           </Card>
         ))}
       </div>

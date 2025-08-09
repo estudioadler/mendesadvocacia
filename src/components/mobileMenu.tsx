@@ -48,7 +48,7 @@ export default function MobileMenu({ isOpen, onClose, listNav }: MobileMenuProps
       <div
        className={`absolute bg-palette-mist rounded-2xl shadow-2xl border border-gray-100 overflow-hidden ${
           isOpen 
-              ? "top-20 right-4 left-4" // Mobile: larger width
+              ? "top-20 right-2 left-2" // Mobile: larger width
               : "top-24 right-8 min-w-80" // Desktop: posição original
           } ${
           isOpen

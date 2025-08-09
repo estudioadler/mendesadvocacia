@@ -1,72 +1,83 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import Image from "next/image"
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
-interface PreloaderProps {
-  duration?: number
-  logoSrc?: string
-  logoWidth?: number
-  logoHeight?: number
-  backgroundColor?: string
-}
-
-export default function Preloader({
-  duration = 2000,
-  logoSrc = "/logo.svg",
-  logoWidth = 128,
-  logoHeight = 80,
-  backgroundColor = "palette-secondary",
-}: PreloaderProps) {
-  const [isLoading, setIsLoading] = useState(true)
-  const [animationStarted, setAnimationStarted] = useState(false)
+export default function Preloader() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Start the animation after the duration
-    const animationTimer = setTimeout(() => {
-      setAnimationStarted(true)
-    }, duration)
+    // Simula o carregamento por 3 segundos
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
 
-    // Remove the preloader after animation completes
-    const loadingTimer = setTimeout(() => {
-      setIsLoading(false)
-    }, duration + 200) // 1000ms for the animation to complete
+    // Simula o progresso de carregamento
+    let progressValue = 0;
+    const progressInterval = setInterval(() => {
+      progressValue += 2;
+      setProgress(Math.min(progressValue, 100));
+    }, 60);
 
     return () => {
-      clearTimeout(animationTimer)
-      clearTimeout(loadingTimer)
-    }
-  }, [duration])
+      clearTimeout(timer);
+      clearInterval(progressInterval);
+    };
+  }, []);
+
+  const containerVariants = {
+    initial: { y: 0 },
+    exit: {
+      y: "-100%",
+      transition: {
+        duration: 0.8,
+        ease: [0.645, 0.045, 0.355, 1],
+      },
+    },
+  };
 
   return (
     <AnimatePresence>
       {isLoading && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden">
-          {/* Static logo that stays in place */}
-          <div className="fixed z-[60] flex items-center justify-center">
-            <Image
-              src={logoSrc || "/placeholder.svg"}
-              alt="Logo"
-              width={logoWidth}
-              height={logoHeight}
-              className="object-contain"
-              priority
-            />
-          </div>
+        <motion.div
+          className="fixed inset-0 z-50 bg-palette-black flex items-center justify-center"
+          variants={containerVariants}
+          initial="initial"
+          exit="exit"
+        >
+          <div className="text-center">
+            {/* Logotipo com efeito de preenchimento */}
+            <div className="relative w-6 h-7 mx-auto">
+              {/* Div preta de fundo */}
+              <div className="absolute inset-0 bg-palette-black overflow-hidden">
+                {/* Barra branca que sobe */}
+                <motion.div
+                  className="absolute bottom-0 left-0 right-0 bg-palette-stone"
+                  initial={{ height: 0 }}
+                  animate={{ height: `${progress}%` }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                />
+              </div>
 
-          {/* Animated background that slides up */}
-          <motion.div
-            className={`absolute inset-0 z-[55] bg-${backgroundColor}`}
-            initial={{ y: 0 }}
-            animate={animationStarted ? { y: "-100%" } : { y: 0 }}
-            transition={{
-              duration: 0.5,    
-              ease: "easeInOut",
-            }}
-          />
-        </div>
+              {/* Logotipo por cima */}
+              <motion.div
+                className="relative flex items-center justify-center"
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <Image
+                  src="/logo.svg"
+                  alt="Logo Mendes Advocacia"
+                  width={28}
+                  height={28}
+                  className="w-7 h-7"
+                />
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
       )}
     </AnimatePresence>
-  )
+  );
 }
