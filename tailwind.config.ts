@@ -19,6 +19,9 @@ const config = {
     },
     extend: {
       colors: {
+        backgroundImage : {
+          noise: "url('/noise.png')",
+        },
         palette: {
           black: "#0D0D0D",
           pine: "#29403D",

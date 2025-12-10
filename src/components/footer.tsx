@@ -35,57 +35,43 @@ const socialLinks = [
     name: "Facebook",
     href: "https://facebook.com/estudioadler",
   },
-  {    name: "Twitter",
-    href: "https://twitter.com/estudioadler",
-  }
+  { name: "Twitter", href: "https://twitter.com/estudioadler" },
 ];
 
 export const Footer = () => {
   return (
-    <footer>
-      <div className="w-full container mx-auto pt-20 pb-8">
+    <div className="w-full bg-[var(--background-color)]">
+      <footer className="container mx-auto pt-20 pb-8 px-6">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
+            {/* Logo */}
             <Link
-              href="#inicio"
-              className="text-palette-black flex items-center gap-2"
+              href="#"
+              className="flex items-center -space-x-2 text-secondary"
             >
               <Image
                 src="/logo.svg"
                 alt="Logo Mendes Advocacia"
-                width={24}
-                height={24}
+                width={28}
+                height={28}
               />
-              <div className="flex flex-col -space-y-2">
+              <div className="flex flex-col items-end -space-y-2">
                 <span>mendes</span>
                 <span>advocacia</span>
               </div>
             </Link>
-            <p className="max-w-xs mt-4 text-muted-foreground text-lg">
+            <p className="max-w-xs mt-4 text-secondary text-lg">
               Defesa dos seus direitos trabalhistas com excelência e dedicação.
             </p>
-
-            <div className="flex flex-col gap-2 mt-6 text-muted-foreground">
-              <p className="font-medium">Redes Sociais</p>
-              {socialLinks.map(({ name, href }) => (
-                <Link
-                  key={name}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  {name}
-                </Link>
-              ))}
-            </div>
           </div>
 
           <div className="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4">
             {Object.entries(footerLinks).map(([section, links]) => (
               <div key={section}>
-                <p className="font-medium capitalize">{section}</p>
-                <nav className="flex flex-col mt-4 space-y-2 text-muted-foreground">
+                <p className="font-medium text-secondary capitalize">
+                  {section}
+                </p>
+                <nav className="flex flex-col mt-4 space-y-2 text-secondary">
                   {links.map(({ name, href }) => (
                     <Link key={name} href={href} className="hover:opacity-75">
                       {name}
@@ -94,11 +80,29 @@ export const Footer = () => {
                 </nav>
               </div>
             ))}
+            
+            {/* Redes Sociais */}
+            <div>
+              <p className="font-medium text-secondary">Redes Sociais</p>
+              <nav className="flex flex-col mt-4 space-y-2 text-secondary">
+                {socialLinks.map(({ name, href }) => (
+                  <Link
+                    key={name}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-75"
+                  >
+                    {name}
+                  </Link>
+                ))}
+              </nav>
+            </div>
           </div>
         </div>
 
-        <p className="mt-8 text-neutral-800">
-          © 2024{" "}
+        <p className="mt-12 text-center text-secondary">
+          © 2026{" "}
           <Link
             href="https://linkedin.com/in/estudioadler"
             className="underline"
@@ -108,7 +112,7 @@ export const Footer = () => {
           </Link>{" "}
           Todos os direitos reservados.
         </p>
-      </div>
-    </footer>
+      </footer>
+    </div>
   );
 };
