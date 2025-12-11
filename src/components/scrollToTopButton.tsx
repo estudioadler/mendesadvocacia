@@ -1,54 +1,28 @@
-
 "use client";
-import { ArrowUp01, ArrowUpIcon } from "lucide-react";
+
+import { ArrowLineUpIcon } from "@phosphor-icons/react/dist/ssr";
 import { useState, useEffect } from "react";
 
-interface ScrollToTopButtonProps {
-  // distância de scroll para exibir o botão (em px)
-  showAfter?: number;
-  // estilo adicional
-  className?: string;
-}
-
-export function ScrollToTopButton({
-  showAfter = 300,
-  className = "",
-}: ScrollToTopButtonProps) {
+export function ScrollToTopButton({ forceVisible = false }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
-      setVisible(scrollY > showAfter);
-    };
+    setVisible(forceVisible);
+  }, [forceVisible]);
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    // checar ao montar
-    handleScroll();
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [showAfter]);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  if (!visible) {
-    return null;
-  }
+  if (!visible) return null;
 
   return (
     <button
-      onClick={scrollToTop}
-      className={`fixed flex items-center justify-center bottom-24 right-8 size-12 rounded-full bg-white text-palette-deepGreen shadow-md focus:outline-none ${className}`}
-      aria-label="Scroll to top"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className="
+        p-4 rounded-full bg-white text-palette-deepGreen shadow-md
+        flex items-center justify-center
+        animate-fadeInScale
+        transition-all duration-300
+      "
     >
-      <ArrowUpIcon size={20} />
+      <ArrowLineUpIcon size={20} />
     </button>
   );
 }

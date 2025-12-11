@@ -69,12 +69,13 @@ export default function Testimonial() {
   return (
     <section
       id="depoimentos"
-      className="container mx-auto px-6 md:px-8 py-20 bg-palette-stone/20"
+      className="container mx-auto px-6 md:px-8 py-20 bg-palette-deepGreen"
     >
       <div className="flex flex-col gap-16">
         <TitleSection
           title="O que nossos clientes dizem"
           tagTitle="Depoimentos"
+          className="text-palette-mist"
         />
 
         <Carousel
@@ -117,9 +118,9 @@ export default function Testimonial() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex justify-start mt-16">
-            <CarouselPrevious variant={"default"} size={"lg"} className="static transform-none mx-2 rounded-3xl" />
-            <CarouselNext variant={"default"} size={"lg"} className="static transform-none mx-2 rounded-3xl" />
+          <div className="flex justify-start mt-8">
+            <CarouselPrevious variant={"secondary"} size={"icon"} className="static transform-none mx-2 rounded-full p-7" />
+            <CarouselNext variant={"secondary"} size={"icon"} className="static transform-none mx-2 rounded-full p-7" />
           </div>
         </Carousel>
       </div>

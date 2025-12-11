@@ -9,8 +9,7 @@ import Preloader from "@/components/preloader";
 import Testimonial from "@/components/testmonial";
 import Benefits from "@/components/benefits";
 import { Statistic } from "@/components/statistic";
-import ContactFloat from "@/components/contactFloat";
-import { ScrollToTopButton } from "@/components/scrollToTopButton";
+
 
 export default function Home() {
   return (
@@ -18,7 +17,6 @@ export default function Home() {
       <Preloader />
       <Header />
       <Hero />
-      <ContactFloat />
       <Statistic />
       <AboutArea />
       <LegalServicesCards />
@@ -26,7 +24,6 @@ export default function Home() {
       <Testimonial />
       <FAQSection />
       <ContactForm />
-      <ScrollToTopButton />
       <Footer />
     </>
   );

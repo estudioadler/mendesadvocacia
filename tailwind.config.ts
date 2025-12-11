@@ -79,10 +79,15 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        fadeInScale: {
+          "0%": { opacity: "0", transform: "scale(0.8) translateY(10px)" },
+          "100%": { opacity: "1", transform: "scale(1) translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        fadeInScale: "fadeInScale 0.3s ease-out",
       },
     },
   },

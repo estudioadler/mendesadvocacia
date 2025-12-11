@@ -57,7 +57,7 @@ export default function Component() {
   }
 
   return (
-    <section id="faq" className="container mx-auto px-6 md:px-8 py-20 flex flex-col gap-12 rounded-t-3xl bg-neutral-100">
+    <section id="faq" className="container mx-auto px-6 md:px-8 py-20 flex flex-col gap-12 rounded-t-3xl bg-palette-mist border-b border-palette-graphite/20">
     <TitleSection title="Perguntas Frequentes" tagTitle="FAQ" alignment="center"/>
     <div className="w-full space-y-4">
       {faqData.map((item) => {
@@ -66,7 +66,7 @@ export default function Component() {
         return (
           <div
             key={item.id}
-            className={`rounded-2xl transition-all duration-300 max-w-4xl mx-auto ${
+            className={`rounded-3xl transition-all duration-300 max-w-4xl mx-auto border border-palette-graphite/20 ${
               isExpanded ? "bg-palette-graphite text-palette-mist" : "bg-palette-mist text-palette-graphite"
             }`}
           >
